@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/jkutkut/Discord_AmongUs-bot/issues"
   },
-  "homepage": "https://github.com/jkutkut/Discord_AmongUs-bot#readme"
+  "homepage": "https://github.com/jkutkut/Discord_AmongUs-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
 }
