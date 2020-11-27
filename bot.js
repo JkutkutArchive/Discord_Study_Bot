@@ -10,6 +10,18 @@ client.login(process.env.APY_KEY);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+
+    // Roles
+    // Check if roles were already created
+    // console.log(guild.roles.cache);
+    // guild.roles.create({
+    //     data: {
+    //             name: 'Muted',
+    //             color: 'BLUE',
+    //         },
+    //     reason: 'people with this role can not talk'
+    // });
+    // console.log(guild.roles.fletch('Muted'));
 });
 
 client.on('message', msg => {
@@ -21,6 +33,11 @@ client.on('message', msg => {
     }
     else if (msg.content === 'bye') {
         msg.member.voice.channel.leave();
+    }
+
+    else if (msg.content === 'm') {
+        msg.member.voice.setMute(true);
+        console.log("toggled");
     }
 
 
