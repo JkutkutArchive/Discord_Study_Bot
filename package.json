@@ -1,0 +1,19 @@
+{
+  "name": "discord_amongus-bot",
+  "version": "1.0.0",
+  "description": "basic bot to play among us",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkutkut/Discord_AmongUs-bot.git"
+  },
+  "author": "Jkutkut",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkutkut/Discord_AmongUs-bot/issues"
+  },
+  "homepage": "https://github.com/jkutkut/Discord_AmongUs-bot#readme"
+}
