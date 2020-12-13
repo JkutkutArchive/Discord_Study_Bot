@@ -1,6 +1,8 @@
 # ThingsToDo:
 - [ ] Define logic of the bot
 - [ ] Define DB logic
+- [ ] View Stats
+- [ ] 
 - [ ] README
 - [ ] TUTORIAL:
     - [ ] Install
@@ -11,4 +13,5 @@
 
 # Ideas:
 - [ ] If twitter link and studing, say something
-- [ ] JSON file to translate commands and phrases
+- [x] JSON file to translate commands and phrases
+- [ ] Graphs?
