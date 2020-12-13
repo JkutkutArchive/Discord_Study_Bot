@@ -12,3 +12,4 @@
 
 # Ideas:
 - [ ] If twitter link and studing, say something
+- [ ] JSON file to translate commands and phrases

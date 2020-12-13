@@ -16,7 +16,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    console.log(msg.content);
+    // console.log(msg);
+    let user = msg.author.id;
     switch(true) {
         case "ping" == msg.content:
             msg.reply('Pong!');
@@ -26,9 +27,12 @@ client.on('message', msg => {
             break;
         case /\/s/.test(msg.content):
             msg.reply("Now you are studing");
+            let type = msg.content.substr(3);
+            startS(user, type);
             break;
         case /\/ds/.test(msg.content):
             msg.reply("You've stop studing");
+            stopS(user);
             break;
         case /\/t/.test(msg.content):
             msg.reply("debug command detected");
@@ -52,10 +56,26 @@ client.on('message', msg => {
 
 db.serialize(function() {
     db.run("CREATE TABLE IF NOT EXISTS data (time BLOB PRIMARY KEY, user TEXT, extra BLOB);");
-    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, 'System', 'start');");
+    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, 'System', 'start');"); //Log on DB that nodejs is on
     console.log("DataBase started");
 });
 
-function prueba(){
-    console.log("msg prueba");
+function startS(user, extra){
+    let dataExtra = {type: "start"};
+    try {
+        if (extra.length != 0){
+            extra = JSON.parse(extra);
+            dataExtra.asig = extra;
+        }
+
+        add2DB(user, dataExtra);
+    } catch (error) {
+        console.log("*****\tERROR at startS\t*****\n" + error);
+    }
+}
+function stopS(user){
+
+}
+function add2DB(user, dataExtra) {
+    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")");
 }
