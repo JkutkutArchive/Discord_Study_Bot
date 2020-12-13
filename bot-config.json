@@ -1,10 +1,8 @@
 {
-	"prefix": "!",
-	"token": "your-token-goes-here",
-	"meaning_of_life": 42,
-	"passwords_array": ["please", "dont", "hack", "me"],
-	"secret_passcodes": {
-		"bank": 1234,
-		"home": 4321
-	}
+	"commands": {
+		"prefix": "!",
+		"startS": "s",
+		"endS": "ds"
+	},
+	"help": "Ayuda:\n\t\t\t**/s**: empezar estudiar. \n\t\t\t**/ds**: dejar estudiar."
 }

@@ -3,9 +3,11 @@ require('dotenv').config(); // To get the credentials
 console.log("Beep Beep!");
 
 const Discord = require('discord.js');
-// const { Database } = require('sqlite3');
 const client = new Discord.Client();
 const guild = new Discord.Guild(client);
+
+const conf = require('./bot-config.json'); //Configuration file
+
 var sqlite3 = require('sqlite3').verbose(); // Database
 var db = new sqlite3.Database(process.env.DB_LOCATION); //(':memory:');
 
@@ -23,7 +25,8 @@ client.on('message', msg => {
             msg.reply('Pong!');
             break;
         case /\/help/.test(msg.content):
-            msg.reply("Ayuda:\n\t\t\t**/s**: empezar estudiar. \n\t\t\t**/ds**: dejar estudiar.");
+            // msg.reply("Ayuda:\n\t\t\t**/s**: empezar estudiar. \n\t\t\t**/ds**: dejar estudiar.");
+            msg.reply(conf.help);
             break;
         case /\/s/.test(msg.content):
             msg.reply("Now you are studing");
