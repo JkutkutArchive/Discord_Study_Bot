@@ -19,25 +19,31 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     // console.log(msg);
+
+    if (msg.content == "ping") {
+        msg.reply('Pong!');
+    }
+
+    if (!msg.content.startsWith(conf.command.prefix)) { // If no command entered, stop the analysis
+        return
+    }
     let user = msg.author.id;
+    console.log(user);
+
     switch(true) {
-        case "ping" == msg.content:
-            msg.reply('Pong!');
-            break;
-        case /\/help/.test(msg.content):
-            // msg.reply("Ayuda:\n\t\t\t**/s**: empezar estudiar. \n\t\t\t**/ds**: dejar estudiar.");
+        case msg.content.startsWith(conf.command.prefix + "help"):
             msg.reply(conf.help);
             break;
-        case /\/s/.test(msg.content):
-            msg.reply("Now you are studing");
+        case msg.content.startsWith(conf.command.prefix + conf.command.startS): // Start s
+            msg.reply(conf.phrase.startS); // reply user on discord
             let type = msg.content.substr(3);
-            startS(user, type);
+            startS(user, type); // Store data on DB
             break;
-        case /\/ds/.test(msg.content):
-            msg.reply("You've stop studing");
-            stopS(user);
+            case msg.content.startsWith(conf.command.prefix + conf.command.endS): // End s
+            msg.reply(conf.phrase.endS); // reply user on discord
+            stopS(user); // Store data on DB
             break;
-        case /\/t/.test(msg.content):
+        case msg.content.startsWith(conf.command.prefix + "t") && user == conf.author: // for testing
             msg.reply("debug command detected");
             if (/getData/.test(msg.content)){
                 // getData(db);
@@ -45,7 +51,7 @@ client.on('message', msg => {
                     console.log(row.user + ": " + row.time);
                 })
             }
-            else if (/exe/.test(msg.content)) {
+            if (/exe/.test(msg.content)) {
                 msg.reply("Executing command, see terminal");
                 try {
                     eval(msg.content.substr(7));

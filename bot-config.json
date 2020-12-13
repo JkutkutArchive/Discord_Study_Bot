@@ -1,8 +1,13 @@
 {
-	"commands": {
+	"command": {
 		"prefix": "!",
 		"startS": "s",
 		"endS": "ds"
 	},
-	"help": "Ayuda:\n\t\t\t**/s**: empezar estudiar. \n\t\t\t**/ds**: dejar estudiar."
+	"phrase":{
+		"startS": "Now you are studing",
+		"endS": ""
+	},
+	"help": "Ayuda:\n\t\t\t**/s**: empezar estudiar. \n\t\t\t**/ds**: dejar estudiar.",
+	"author": "695589173914239057"
 }
