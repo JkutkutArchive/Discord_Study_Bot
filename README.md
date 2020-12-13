@@ -1,6 +1,11 @@
 # Discord_AmongUs-bot:
 
-Release notes:
+Basic bot to keep tracking of our time.
+
+
+
+
+## Release notes:
 - v0.1:
     - Basic logic created
     - Basic communication
