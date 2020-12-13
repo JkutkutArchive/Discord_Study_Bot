@@ -1,21 +1,21 @@
 {
-  "name": "discord_amongus-bot",
+  "name": "Discord-Study-Bot",
   "version": "1.0.0",
-  "description": "basic bot to play among us",
+  "description": "Basic bot to keep tracking of our time.",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jkutkut/Discord_AmongUs-bot.git"
+    "url": "git+https://github.com/jkutkut/Discord_Study_Bot.git"
   },
   "author": "Jkutkut",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jkutkut/Discord_AmongUs-bot/issues"
   },
-  "homepage": "https://github.com/jkutkut/Discord_AmongUs-bot#readme",
+  "homepage": "https://github.com/jkutkut/Discord_Study_Bot#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
