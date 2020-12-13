@@ -83,7 +83,7 @@ function startS(user, extra){
     }
 }
 function stopS(user){
-
+    add2DB(user, {type: "end"});
 }
 function add2DB(user, dataExtra) {
     db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")");
