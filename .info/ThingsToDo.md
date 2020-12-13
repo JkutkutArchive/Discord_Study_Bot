@@ -7,3 +7,8 @@
     - [ ] Use
     - [ ] 
 - [ ] 
+
+
+
+# Ideas:
+- [ ] If twitter link and studing, say something
