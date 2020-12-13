@@ -4,8 +4,7 @@
 - [ ] README
 - [ ] TUTORIAL:
     - [ ] Install
-    - [ ] Use
-    - [ ] 
+    - [ ] HowToUse
 - [ ] 
 
 
