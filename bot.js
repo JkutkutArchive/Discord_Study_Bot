@@ -76,7 +76,7 @@ db.serialize(function() {
 });
 
 function startS(user, extra){
-    let dataExtra = {type: "start"};
+    let dataExtra = {type: "start", asig: ""};
     try {
         if (extra.length != 0){
             extra = JSON.parse(extra);
@@ -92,5 +92,12 @@ function stopS(user){
     add2DB(user, {type: "end"});
 }
 function add2DB(user, dataExtra) {
-    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")", (err) => { if (err) { console.log(err); } } );
+    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")", (err) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log("data stored correctly");
+        } 
+    });
 }
