@@ -1,4 +1,4 @@
-require('dotenv').config(); // To get the credentials
+require('dotenv').config("./"); // To get the credentials
 
 console.log("Beep Beep!");
 

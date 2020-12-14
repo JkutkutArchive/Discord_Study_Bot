@@ -1,5 +1,5 @@
 {
-  "name": "Discord-Study-Bot",
+  "name": "discordStudyCode",
   "version": "1.0.0",
   "description": "Basic bot to keep tracking of our time.",
   "main": "bot.js",
