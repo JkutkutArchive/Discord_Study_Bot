@@ -9,6 +9,7 @@ const guild = new Discord.Guild(client);
 const conf = require('./bot-config.json'); //Configuration file
 
 var sqlite3 = require('sqlite3').verbose(); // Database
+console.log(process.env.DB_LOCATION)
 var db = new sqlite3.Database(process.env.DB_LOCATION); //(':memory:');
 
 client.login(process.env.APY_KEY);
