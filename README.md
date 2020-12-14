@@ -17,3 +17,5 @@ https://discord.com/oauth2/authorize?client_id= **ClienID** &scope=bot
 npm install discord.js
 npm install dotenv
 npm install sqlite3
+
+npm install forever -g
