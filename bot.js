@@ -83,7 +83,7 @@ function startS(user, extra){
             dataExtra.asig = extra;
         }
 
-        add2DB(user, dataExtra);
+        add2DB(user, JSON.stringify(dataExtra));
     } catch (error) {
         console.log("*****\tERROR at startS\t*****\n" + error);
     }
@@ -92,6 +92,7 @@ function stopS(user){
     add2DB(user, {type: "end"});
 }
 function add2DB(user, dataExtra) {
+    console.log("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")");
     db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")", (err) => {
         if (err) {
             console.log(err);
