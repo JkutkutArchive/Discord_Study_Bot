@@ -23,26 +23,27 @@ Instalation will begin shortly.
 
 
 echo "-------------------------------------------
-All things needed are correctly installed. Now installing the application.
+Extra code correctly installed. Now installing the application modules.
 " &&
-echo "-Creating icon for the app" &&
-sudo cp tetris.png /usr/share/icons/ && # move the icon to the correct dir
+echo "- Creating the nodejs app:" &&
+# npm init &&
+echo -e "\t- Installing discord's module" &&
+npm install discord.js &&
+echo -e "\t- Installing dotenv's module (to store the bot-key)" &&
+npm install dotenv &&
+echo -e "\t- Installing sqlite3's module" &&
+npm install sqlite3 &&
 
-echo "-Creating executable" &&
-sudo cp tetris.py /usr/bin/tetris && # move the python code
-sudo chmod 755 /usr/bin/tetris && # make it able to be executed
+echo "All modules installed, installing now the application." &&
+echo "- Creating database" &&
+mkdir DB &&
+touch ./DB/dataBase.db &&
 
-echo "-Creating Desktop Entry" &&
-echo "[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Tetris
-Comment=Made by Jkutkut
-Exec=tetris
-Icon=/usr/share/icons/tetris.png
-Terminal=false" >> tetris.desktop && # create the .desktop file
+read -p "Enter the BOT key ->" -s apikey; &&
+echo -e "DB_LOCATION=./DB/dataBase.db\nAPY_KEY=$apikey" >> .env; &&
 
-sudo mv tetris.desktop /usr/share/applications/ &&
+
+
 echo "
 Installation ended.
 Tetris installed correctly" ||
