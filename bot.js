@@ -93,7 +93,7 @@ function stopS(user){
 }
 function add2DB(user, dataExtra) {
     console.log("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, '" + user + "', '" + dataExtra + "')");
-    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")", (err) => {
+    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, '" + user + "', '" + dataExtra + "')", (err) => {
         if (err) {
             console.log(err);
         }
