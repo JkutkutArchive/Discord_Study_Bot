@@ -83,7 +83,8 @@ function startS(user, extra){
             dataExtra.asig = extra;
         }
 
-        add2DB(user, JSON.stringify(dataExtra));
+        add2DB(user, dataExtra.toString());
+        // add2DB(user, JSON.stringify(dataExtra));
     } catch (error) {
         console.log("*****\tERROR at startS\t*****\n" + error);
     }
