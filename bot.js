@@ -1,4 +1,4 @@
-require('dotenv').config("./"); // To get the credentials
+require('dotenv').config({path: '../'}); // To get the credentials
 
 console.log("Beep Beep!");
 
@@ -48,7 +48,12 @@ client.on('message', msg => {
             if (/getData/.test(msg.content)){
                 // getData(db);
                 db.each("SELECT * FROM data;", function(err, row){
-                    console.log(row.user + ": " + row.time);
+                    if (err) {
+                        console.log(err);
+                    }
+                    else{
+                        console.log(row.user + ": " + row.time);
+                    }
                 })
             }
             if (/exe/.test(msg.content)) {
@@ -86,5 +91,5 @@ function stopS(user){
     add2DB(user, {type: "end"});
 }
 function add2DB(user, dataExtra) {
-    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")");
+    db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, " + user + ", " + dataExtra + ")", (err) => { if (err) { console.log(err); } } );
 }
