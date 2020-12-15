@@ -15,6 +15,10 @@ client.login(process.env.APY_KEY);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    // console.log(client)
+    console.log(client.channels);
+    // console.log(client.guilds.cache.presences);
+    // console.log(stillOnDiscord("695589173914239057"))
 });
 
 client.on('message', msg => {
@@ -118,6 +122,10 @@ function add2DB(user, dataExtra) {
         } 
     });
 }
+function stillOnDiscord(userId){
+    console.log(userId);
+    return client.users.cache.get(userId);
+}
 
 function getTotalTime(user, data, asig, unit) {
     // console.log(user);
@@ -134,6 +142,18 @@ async function getTimeData(user, asig=/.*/, unit=/m/) {
         getTotalTime(user, rows, unit, asig);
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
