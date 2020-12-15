@@ -36,7 +36,7 @@ client.on('message', msg => {
         case msg.content.startsWith(conf.command.prefix + conf.command.startS): // Start s
             let type = msg.content.substr(conf.command.prefix.length + conf.command.startS.length + 1); // If special subject selected, it will go here
             startS(user.id, type); // Store data on DB
-            msg.reply(conf.phrase.startS); // reply user on discord
+            msg.reply(conf.phrase.startS + " " + type); // reply user on discord
             break;
         case msg.content.startsWith(conf.command.prefix + conf.command.endS): // End s
             stopS(user.id); // Store data on DB
