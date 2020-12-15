@@ -34,13 +34,13 @@ client.on('message', msg => {
             msg.reply(conf.help);
             break;
         case msg.content.startsWith(conf.command.prefix + conf.command.startS): // Start s
-            msg.reply(conf.phrase.startS); // reply user on discord
-            let type = msg.content.substr(conf.command.prefix.length + conf.command.startS.length + 1);
+            let type = msg.content.substr(conf.command.prefix.length + conf.command.startS.length + 1); // If special subject selected, it will go here
             startS(user.id, type); // Store data on DB
+            msg.reply(conf.phrase.startS); // reply user on discord
             break;
         case msg.content.startsWith(conf.command.prefix + conf.command.endS): // End s
-            msg.reply(conf.phrase.endS); // reply user on discord
             stopS(user.id); // Store data on DB
+            msg.reply(conf.phrase.endS); // reply user on discord
             break;
         case msg.content.startsWith(conf.command.prefix + "getData"):
             let extra = msg.content.substr(conf.command.prefix.length + "getData".length + 1).split(" ");
