@@ -106,7 +106,7 @@ function startS(user, extra = null){
     }
 }
 function stopS(user){
-    add2DB(user, {type: "end"});
+    add2DB(user, JSON.stringify({type: "end"}));
 }
 function add2DB(user, dataExtra) {
     db.run("INSERT INTO data (time, user, extra) VALUES (CURRENT_TIMESTAMP, '" + user + "', '" + dataExtra + "')", (err) => {
