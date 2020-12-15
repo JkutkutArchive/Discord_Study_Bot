@@ -27,8 +27,8 @@ client.on('message', msg => {
     if (!msg.content.startsWith(conf.command.prefix)) { // If no command entered, stop the analysis
         return
     }
-    let user = msg.author.id;
-    console.log(user);
+    let user = msg.author;
+    // console.log(user);
 
     switch(true) {
         case msg.content.startsWith(conf.command.prefix + "help"):
@@ -37,12 +37,14 @@ client.on('message', msg => {
         case msg.content.startsWith(conf.command.prefix + conf.command.startS): // Start s
             msg.reply(conf.phrase.startS); // reply user on discord
             let type = msg.content.substr(3);
-            startS(user, type); // Store data on DB
+            startS(user.id, type); // Store data on DB
             break;
-            case msg.content.startsWith(conf.command.prefix + conf.command.endS): // End s
+        case msg.content.startsWith(conf.command.prefix + conf.command.endS): // End s
             msg.reply(conf.phrase.endS); // reply user on discord
-            stopS(user); // Store data on DB
+            stopS(user.id); // Store data on DB
             break;
+
+        // Testing
         case msg.content.startsWith(conf.command.prefix + "t") && user == conf.author: // for testing
             msg.reply("debug command detected");
             if (/getData/.test(msg.content)){
@@ -54,7 +56,7 @@ client.on('message', msg => {
                     else{
                         console.log(row.user + ": " + row.time);
                     }
-                })
+                });
             }
             if (/exe/.test(msg.content)) {
                 msg.reply("Executing command, see terminal");
@@ -74,6 +76,7 @@ db.serialize(function() {
     console.log("DataBase started");
 });
 
+/* SETTERS */
 function startS(user, extra){
     let dataExtra = {type: "start", asig: ""};
     try {
@@ -100,3 +103,22 @@ function add2DB(user, dataExtra) {
         } 
     });
 }
+
+function getTotalTime(user, data, unit, asig) {
+    // console.log(user);
+    user.send(data);
+}
+
+
+async function getTimeData(user, unit=/m/, asig=/.*/) {
+    db.all("SELECT * FROM data;", (err, rows) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        getTotalTime(user, rows, unit, asig);
+    });
+}
+
+
+

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jkutkut/Discord_Study_Bot#readme",
   "dependencies": {
+    "chart.js": "^2.9.4",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "sqlite3": "^5.0.0"
