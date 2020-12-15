@@ -93,11 +93,10 @@ db.serialize(function() {
 });
 
 /* SETTERS */
-function startS(user, extra){
+function startS(user, extra = null){
     let dataExtra = {type: "start", asig: ""};
     try {
-        if (extra.length != 0){
-            extra = JSON.parse(extra);
+        if (extra != null){
             dataExtra.asig = extra;
         }
 
