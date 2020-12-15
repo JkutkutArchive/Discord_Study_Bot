@@ -5,7 +5,7 @@
 		"endS": "ds"
 	},
 	"phrase":{
-		"startS": "Now you are studing",
+		"startS": "Now you are studying",
 		"endS": "Study time ended"
 	},
 	"help": "Ayuda:\n\t\t\t**!s**: empezar estudiar. \n\t\t\t**!ds**: dejar estudiar.",
