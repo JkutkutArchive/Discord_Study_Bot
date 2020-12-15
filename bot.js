@@ -1,6 +1,6 @@
 require('dotenv').config(); // To get the credentials
 
-console.log("Beep Beep!");
+console.log("Starting Bot...");
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -18,8 +18,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    // console.log(msg);
-
+    
     if (msg.content == "ping") {
         msg.reply('Pong!');
     }
