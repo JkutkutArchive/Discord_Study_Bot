@@ -8,6 +8,6 @@
 		"startS": "Now you are studing",
 		"endS": "Study time ended"
 	},
-	"help": "Ayuda:\n\t\t\t**/s**: empezar estudiar. \n\t\t\t**/ds**: dejar estudiar.",
+	"help": "Ayuda:\n\t\t\t**!s**: empezar estudiar. \n\t\t\t**!ds**: dejar estudiar.",
 	"author": "695589173914239057"
 }
