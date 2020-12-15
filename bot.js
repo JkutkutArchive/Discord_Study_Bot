@@ -36,12 +36,29 @@ client.on('message', msg => {
             break;
         case msg.content.startsWith(conf.command.prefix + conf.command.startS): // Start s
             msg.reply(conf.phrase.startS); // reply user on discord
-            let type = msg.content.substr(3);
+            let type = msg.content.substr(conf.command.prefix.length + conf.command.startS.length + 1);
             startS(user.id, type); // Store data on DB
             break;
         case msg.content.startsWith(conf.command.prefix + conf.command.endS): // End s
             msg.reply(conf.phrase.endS); // reply user on discord
             stopS(user.id); // Store data on DB
+            break;
+        case msg.content.startsWith(conf.command.prefix + "getData"):
+            let extra = msg.content.substr(conf.command.prefix.length + "getData".length + 1).split(" ");
+            let modifiers = {unit: /m/, asig: /.*/};
+
+            if (extra.length == 1 && extra[0] != "") { // Special parameters
+                modifiers.unit = RegExp(extra[0]);
+            }
+            else { //Asig given
+                modifiers.unit = RegExp(extra[0]);
+                extra.shift();
+                modifiers.asig = RegExp(extra.join(" "));
+            }
+
+            // console.log("\n\n\n" + user.id);
+            // console.log(modifiers);
+
             break;
 
         // Testing
