@@ -16,9 +16,11 @@ client.login(process.env.APY_KEY);
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     // console.log(client)
-    console.log(client.channels);
-    // console.log(client.guilds.cache.presences);
+    // console.log(guild.members.guild.member);
+    // console.log(client.channels);
+    // console.log(client);
     // console.log(stillOnDiscord("695589173914239057"))
+    usersConnected();
 });
 
 client.on('message', msg => {
@@ -141,6 +143,37 @@ async function getTimeData(user, asig=/.*/, unit=/m/) {
         }
         getTotalTime(user, rows, unit, asig);
     });
+}
+
+function usersConnected(){
+    // let usersCached = client.users.cache;
+    // // console.log(Array.from(usersCached));
+
+    // for(const u of usersCached){
+    //     let id = u[0];
+    //     let client = u[1];
+    //     // console.log(client);
+    //     if (client.bot){ // if bot, not a valid user
+    //         continue
+    //     }
+    //     console.log("\n\n***** Player *****\n\n");
+    //     console.log(client.presence);
+    //     // console.log(typeof(client));
+    // }
+
+
+    // let channelsUser = client.channels.cache;
+    // for (const [id, voiceChannel] of channelsUser) {
+    //     console.log(voiceChannel.members)
+        
+    //     // console.log(voiceChannel.members)
+    // }
+
+    let channelsUser = client.channels.cache;
+    console.log(channelsUser);
+    // for (let x in channelsUser){
+    //     console.log(x.members);
+    // }
 }
 
 
