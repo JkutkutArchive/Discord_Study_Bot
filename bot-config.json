@@ -13,7 +13,12 @@
 			"d": "days",
 			"h": "hours",
 			"m": "minutes",
-			"s": "seconds"
+			"s": "seconds",
+			"days": "d",
+			"hours": "h",
+			"minutes": "m",
+			"seconds": "s"
+			
 		}
 	},
 	"help": "Ayuda:\n\t\t\t**!s**: empezar estudiar. \n\t\t\t**!ds**: dejar estudiar.",
