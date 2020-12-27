@@ -83,8 +83,33 @@ async function getTimeData(user, asig=/.*/, unit=/m/, process) {
  * @param {string} st - String with the start date
  * @param {string} et - String with the end date
  */
-function dates2time(st, et){
+function dates2time(st, et, unit = "m", type = "string"){
+    let start = Date.parse(st); // Millis
+    let end = Date.parse(et);
 
+    let time = end - start;
+    console.log(millis2time(time, "m"));
+    
+
+    
+    return "";
+}
+
+function millis2time(time, unit){
+    switch (true) {
+        case /^m(inutes)?$/.test(unit):
+            time = millisTo(time, "s") / 60;
+        break;
+        case /^s(econds)?$/.test(unit):
+            time = time / 1000;
+        break;
+        case /^h(ours)?$/.test(unit):
+            time = millisTo(time, "m") / 60;
+            break;
+        case unit = "millis":
+            break;
+    }
+    return time;
 }
 
 
