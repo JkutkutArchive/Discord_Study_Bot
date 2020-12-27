@@ -4,6 +4,8 @@ var sqlite3 = require('sqlite3').verbose(); // Database
 var db = new sqlite3.Database("./DB/dataBase2.db"); //(':memory:');
 // var db = new sqlite3.Database(process.env.DB_LOCATION); //(':memory:');
 
+const conf = require('./bot-config.json'); //Configuration file
+
 user = "*";
 // user = "695589173914239057";
 getTotalTime(user, debugData(), null, null);
@@ -83,33 +85,44 @@ async function getTimeData(user, asig=/.*/, unit=/m/, process) {
  * @param {string} st - String with the start date
  * @param {string} et - String with the end date
  */
-function dates2time(st, et, unit = "m", type = "string"){
+function dates2time(st, et, unit = "m", type = "number"){
     let start = Date.parse(st); // Millis
     let end = Date.parse(et);
 
-    let time = end - start;
-    console.log(millis2time(time, "m"));
+    let time = millis2time(end - start, unit);
     
-
-    
-    return "";
+    if (type == "string") {
+        return time + " " + conf.time.conversor[unit];
+    }
+    else {
+        return time;
+    }
 }
 
 function millis2time(time, unit){
     switch (true) {
         case /^m(inutes)?$/.test(unit):
-            time = millisTo(time, "s") / 60;
-        break;
+            return millis2time(time, "s") / 60;
         case /^s(econds)?$/.test(unit):
-            time = time / 1000;
-        break;
+            return time / 1000;
         case /^h(ours)?$/.test(unit):
-            time = millisTo(time, "m") / 60;
-            break;
-        case unit = "millis":
-            break;
+            return millis2time(time, "m") / 60;
     }
-    return time;
+    return 0;
+}
+function time2millis(time, unit) {
+    switch (true) {
+        case /^m(inutes)?$/.test(unit):
+            return millisTo(time, "s") * 60;
+        case /^s(econds)?$/.test(unit):
+            return time * 1000;
+        case /^h(ours)?$/.test(unit):
+            return millisTo(time, "m") * 60;
+    }
+    return 0;
+}
+function time2time(time, oldUnit, newUnit) {
+    return millis2time(time2millis(time, oldUnit), newUnit);
 }
 
 
