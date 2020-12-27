@@ -11,6 +11,8 @@ getTotalTime(user, debugData(), null, null);
 
 
 function getTotalTime(user, data, unit, asig) {
+    let tTime = 0; // total time
+    let st = null, et = null; // startTime and endTime
     for (let r of data) {
         if (r.user == "System"){ // Keep track of the system status
             console.log("*** System detected ***");
@@ -32,9 +34,17 @@ function getTotalTime(user, data, unit, asig) {
             }
 
             if (extra.type == "start") {
+                st = r.time;
                 console.log("\t\t" + r.user + " started");
             }
             else if(extra.type == "end"){
+                if (st == null) {
+                    console.log("error");
+                }
+                else {
+                    et = r.time;
+                    console.log(dates2time(st, et));
+                }
                 console.log("\t\t" + r.user + " ended");
             }
         }
@@ -63,6 +73,19 @@ async function getTimeData(user, asig=/.*/, unit=/m/, process) {
     });
 }
 
+
+
+
+
+// ** CONVERSORS **
+/**
+ * Gets the time between two dates.
+ * @param {string} st - String with the start date
+ * @param {string} et - String with the end date
+ */
+function dates2time(st, et){
+
+}
 
 
 
