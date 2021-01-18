@@ -40,7 +40,7 @@ function getTotalTime(user, data, unit, asig) {
                 console.log("\t\t" + r.user + " started");
             }
             else if(extra.type == "end"){
-                if (st == null) {
+                if (st == null) { // if 
                     console.log("error");
                 }
                 else {
